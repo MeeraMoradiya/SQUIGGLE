@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Squiggle</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="undo">Undo</string>
+    <string name="pen">Pen</string>
+    <string name="eraser">Eraser</string>
+    <string name="settings">Settings</string>
+</resources>
