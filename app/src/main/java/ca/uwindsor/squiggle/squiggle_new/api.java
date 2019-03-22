@@ -1,5 +1,7 @@
 package ca.uwindsor.squiggle.squiggle_new;
 
+import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.Manifest;
 import android.accounts.Account;
@@ -52,6 +54,7 @@ public class api extends AppCompatActivity {
     private ImageView selectedImage;
     private TextView resultTextView;
     Account mAccount;
+    Bitmap bmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,10 @@ public class api extends AppCompatActivity {
                 .select_image_button);
         selectedImage = (ImageView) findViewById(R.id.selected_image);
         resultTextView = (TextView) findViewById(R.id.result);
+
+
+        byte[] byteArray = getIntent().getByteArrayExtra("image");
+        bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
         selectImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -264,8 +271,16 @@ public class api extends AppCompatActivity {
         String[] accountTypes = new String[]{GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE};
         Intent intent = AccountPicker.newChooseAccountIntent(null, null,
                 accountTypes, false, null, null, null, null);
+       // AccountPicker.newChooseAccountIntent()
+       // Uri tempUri=getImageUri(getApplicationContext(),bmp);
+       // intent.setData(tempUri);
         startActivityForResult(intent, REQUEST_CODE_PICK_ACCOUNT);
     }
+
+
+
+
+
 
     private void getAuthToken() {
         String SCOPE = "oauth2:https://www.googleapis.com/auth/cloud-platform";

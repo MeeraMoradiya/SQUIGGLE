@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/undo"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/undo"
+        android:orderInCategory="1"
+        />
+    <item
+        android:id="@+id/pencil"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/pencil1"
+        android:orderInCategory="1"
+        >
+        <!-- Starting the text color sub menu which have three items-->
+        <menu>
+            <item
+                android:id="@+id/smallPencil"
+                android:title=""
+                android:icon="@drawable/pencil1"
+                />
+            <item
+                android:id="@+id/mediumPencil"
+                android:title=""
+                android:icon="@drawable/pencil1"
+                />
+            <item
+                android:id="@+id/largePencil"
+                android:title=""
+                android:icon="@drawable/pencil1"
+                />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/eraser"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/eraser"
+        android:orderInCategory="1"
+        />
+    <item
+        android:id="@+id/colorBox"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/colorbox"
+        android:orderInCategory="1"
+        >
+        <!-- Starting the text color sub menu which have three items-->
+        <menu>
+            <item
+                android:id="@+id/black"
+                android:title=""
+                android:icon="@drawable/black"
+                />
+            <item
+                android:id="@+id/red"
+                android:title=""
+                android:icon="@drawable/red"
+                />
+            <item
+                android:id="@+id/green"
+                android:title=""
+                android:icon="@drawable/green"
+                />
+            <item
+                android:id="@+id/blue"
+                android:title=""
+                android:icon="@drawable/blue"
+                />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/template"
+        android:title="Templates"
+        app:showAsAction="never|withText"
+        android:orderInCategory="3"
+        android:icon="@drawable/green"
+        >
+        <menu>
+            <item
+                android:id="@+id/maths"
+                android:title="Maths"
+                />
+            <item
+                android:id="@+id/english"
+                android:title="English"
+                />
+            <item
+                android:id="@+id/letter1"
+                android:title="Letter1"
+                />
+            <item
+                android:id="@+id/letter2"
+                android:title="Letter2"
+                />
+            <item
+                android:id="@+id/letter3"
+                android:title="Letter3"
+                />
+            <item
+                android:id="@+id/letter4"
+                android:title="Letter4"
+                />
+            <item
+                android:id="@+id/letter5"
+                android:title="Letter5"
+                />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/saveAsImage"
+        android:title="Save as Image"
+        app:showAsAction="never|withText"
+        android:orderInCategory="4"
+        android:icon="@drawable/red"
+        />
+    <item
+        android:id="@+id/saveAsText"
+        android:title="Save as Text"
+        app:showAsAction="never|withText"
+        android:orderInCategory="4"
+        android:icon="@drawable/red"
+        />
+</menu>
+<!--<menu xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--tools:context="com.example.test.MainActivity">-->
+
+    <!--<item-->
+        <!--android:id="@+id/pencil"-->
+        <!--android:width="5px"-->
+        <!--android:icon="@drawable/pencil1"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title=""-->
+
+        <!--android:visible="true"-->
+        <!--app:showAsAction="always">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/smallpen1"-->
+                <!--android:layout_width="5px"-->
+
+                <!--android:icon="@drawable/pencil"-->
+                <!--android:orderInCategory="100"-->
+                <!--android:title=""-->
+                <!--app:showAsAction="never" />-->
+            <!--&lt;!&ndash;<item&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/mediumpen1"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="5px"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:width="5px"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:icon="@drawable/highlight"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:orderInCategory="100"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:title=""&ndash;&gt;-->
+            <!--&lt;!&ndash;app:showAsAction="never" />&ndash;&gt;-->
+            <!--&lt;!&ndash;<item&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/bigpen1"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="5px"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:width="5px"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:icon="@drawable/highlighter"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:orderInCategory="100"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:title=""&ndash;&gt;-->
+            <!--&lt;!&ndash;app:showAsAction="never" />&ndash;&gt;-->
+        <!--</menu>-->
+    <!--</item>-->
+    <!--<item-->
+        <!--android:id="@+id/eraser"-->
+        <!--android:icon="@drawable/eraser"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title=""-->
+        <!--app:showAsAction="always" />-->
+    <!--<item-->
+        <!--android:id="@+id/colorbox"-->
+        <!--android:icon="@drawable/colorbox"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title=""-->
+        <!--app:showAsAction="always">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/red"-->
+                <!--android:gravity="center"-->
+                <!--android:icon="@drawable/red"-->
+                <!--android:orderInCategory="100"-->
+                <!--android:title=""-->
+                <!--app:showAsAction="never" />-->
+            <!--<item-->
+                <!--android:id="@+id/green"-->
+                <!--android:icon="@drawable/green"-->
+                <!--android:orderInCategory="100"-->
+                <!--android:title=""-->
+                <!--app:showAsAction="never" />-->
+            <!--<item-->
+                <!--android:id="@+id/blue"-->
+                <!--android:icon="@drawable/blue"-->
+                <!--android:orderInCategory="100"-->
+                <!--android:title=""-->
+                <!--app:showAsAction="never" />-->
+        <!--</menu>-->
+
+    <!--</item>-->
+
+    <!--<item-->
+        <!--android:id="@+id/settings"-->
+        <!--android:title="Settings"-->
+        <!--app:showAsAction="never">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/templates"-->
+                <!--android:icon="@android:drawable/ic_menu_edit"-->
+                <!--android:orderInCategory="100"-->
+                <!--android:title="Templates">-->
+                <!--<menu>-->
+                    <!--<item-->
+                        <!--android:id="@+id/maths"-->
+                        <!--android:icon="@android:drawable/btn_dialog"-->
+                        <!--android:orderInCategory="100"-->
+                        <!--android:title="Maths"-->
+                        <!--app:showAsAction="never" />-->
+                    <!--<item-->
+                        <!--android:id="@+id/diary"-->
+                        <!--android:icon="@android:drawable/btn_dialog"-->
+                        <!--android:orderInCategory="100"-->
+                        <!--android:title="Diary"-->
+                        <!--app:showAsAction="never" />-->
+
+
+                <!--</menu>-->
+            <!--</item>-->
+            <!--<item-->
+                <!--android:id="@+id/saveAsPDF"-->
+                <!--android:icon="@android:drawable/ic_menu_edit"-->
+                <!--android:orderInCategory="100"-->
+                <!--android:title="Save as PDF" />-->
+            <!--<item-->
+                <!--android:id="@+id/saveToDrive"-->
+                <!--android:icon="@android:drawable/ic_menu_edit"-->
+                <!--android:orderInCategory="100"-->
+                <!--android:title="Save to Drive" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+<!--</menu>-->
+
+
