@@ -2,6 +2,7 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/share_menu"
     >
     <item
         android:id="@+id/undo"
@@ -127,6 +128,7 @@
         android:orderInCategory="4"
         android:icon="@drawable/red"
         />
+
 </menu>
 <!--<menu xmlns:android="http://schemas.android.com/apk/res/android"-->
     <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->

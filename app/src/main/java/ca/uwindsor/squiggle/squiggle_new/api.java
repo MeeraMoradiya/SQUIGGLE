@@ -66,6 +66,10 @@ public class api extends AppCompatActivity {
         resultTextView = (TextView) findViewById(R.id.result);
 
 
+
+
+
+
         byte[] byteArray = getIntent().getByteArrayExtra("image");
         bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
