@@ -7,19 +7,17 @@
     tools:context=".splash">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="87dp"
-        tools:layout_editor_absoluteY="301dp">
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="#94549D">
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="289dp"
-            android:layout_height="287dp"
-            app:srcCompat="@drawable/logo"
-            tools:layout_editor_absoluteX="61dp"
-            tools:layout_editor_absoluteY="222dp" />
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="0dp"
+            app:srcCompat="@drawable/logo5" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -19,7 +19,9 @@ import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ShareActionProvider;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.largePencil:
                         brushSettings.setSelectedBrush(Brushes.PENCIL);
-                        brushSettings.setSelectedBrushSize(0.6f);
+                        brushSettings.setSelectedBrushSize(0.8f);
                         return true;
                  case R.id.eraser:
                      brushSettings.setSelectedBrush(Brushes.ERASER);
@@ -87,10 +89,25 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.green:
                         brushSettings.setColor(Color.GREEN);
                         return true;
+                    case R.id.yellow:
+                        brushSettings.setColor(Color.YELLOW);
+                        return true;
                     case R.id.blue:
                         brushSettings.setColor(Color.BLUE);
                         return true;
 
+                    case R.id.share:
+                        Intent sendIntent = new Intent();
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        Bitmap bitmap=mDrawingView.exportDrawing();
+                        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+                        String path = MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), bitmap, "Title", null);
+                        sendIntent.putExtra(Intent.EXTRA_STREAM,Uri.parse(path));
+                        sendIntent.setType("image/jpg");
+                        Intent.createChooser(sendIntent,"Share via");
+                        startActivity(sendIntent);
+                        return true;
                     case R.id.maths:
 
                         mDrawingView.setBackgroundImage(BitmapFactory.decodeResource(getResources(),R.drawable.maths));
@@ -125,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                       return true;
+
                     case R.id.saveAsText:
                       /*  Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                                 "mailto",null, null));
@@ -133,10 +151,21 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(Intent.createChooser(emailIntent, "Send email..."));*/
                         onClickWhatsApp();
                         return true;
+
                     default:
                         return true;
                  }
             }
+
+    public void shareText(View view) {
+        Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        String shareBodyText = "Your shearing message goes here";
+        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject/Title");
+        intent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText);
+        startActivity(Intent.createChooser(intent, "Choose sharing method"));
+    }
+
 
     public void onClickWhatsApp() {
 
@@ -170,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
 
         String root = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES).toString();
-        File myDir = new File(root + "/saved_images");
+        File myDir = new File(root + "/Squiggle");
         myDir.mkdirs();
         Random generator = new Random();
 
@@ -199,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.i("ExternalStorage", "-> uri=" + uri);
                     }
                 });
+            Toast.makeText(this, "Saved Image in Gallery", Toast.LENGTH_LONG).show();
     }
    /* public void savePhoto(final Bitmap bitmap) {
 
@@ -323,6 +353,23 @@ Log.d("save","save image Async task");
             }
         });
 
+      /*  FloatingActionButton share=findViewById(R.id.share);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                Bitmap bitmap=mDrawingView.exportDrawing();
+                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+                String path = MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), bitmap, "Title", null);
+                sendIntent.putExtra(Intent.EXTRA_STREAM,Uri.parse(path));
+                sendIntent.setType("image/jpg");
+                Intent.createChooser(sendIntent,"Share via");
+                startActivity(sendIntent);
+            }
+
+        });*/
 
         // mTextMessage = (TextView) findViewById(R.id.message);
        /* BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

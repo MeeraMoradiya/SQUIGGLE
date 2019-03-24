@@ -1,8 +1,8 @@
 package ca.uwindsor.squiggle.squiggle_new;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.content.Intent;
 
 public class splash extends AppCompatActivity {
 
@@ -15,7 +15,7 @@ public class splash extends AppCompatActivity {
             @Override
             public void run(){
                 try{
-                    sleep(3000);
+                    sleep(5000);
                     Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                     finish();

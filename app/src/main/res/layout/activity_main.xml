@@ -17,6 +17,10 @@
             android:layout_height="?attr/actionBarSize"
             android:background="#FF4500"
             app:popupTheme="@style/AppTheme.PopupOverlay" />-->
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:logo="@drawable/logo6"/>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -28,6 +32,20 @@
         android:layout_marginRight="20px"
         android:layout_marginBottom="20dp"
         app:backgroundTint="#FF4500"
+        app:srcCompat="?attr/actionModeShareDrawable"
+        android:src="@drawable/view">
+
+    </android.support.design.widget.FloatingActionButton>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="20px"
+        android:layout_marginBottom="20dp"
+        app:backgroundTint="#94549D"
         app:srcCompat="?attr/actionModeShareDrawable"
         android:src="@drawable/view">
 

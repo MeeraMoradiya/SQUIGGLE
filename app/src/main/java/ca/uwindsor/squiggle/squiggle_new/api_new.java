@@ -57,6 +57,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -85,18 +86,8 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_api_new);
         tts = new TextToSpeech(this, this);
-       // currentModeTv = (TextView) findViewById(R.id.currentMoteTv);
         mImageDetails = (TextView) findViewById(R.id.image_details);
         mMainImage = (ImageView) findViewById(R.id.main_image);
-        textToSpeech=(Button)findViewById(R.id.imageButton);
-
-
-        textToSpeech.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                speakOut();
-            }
-        });
 
         byte[] byteArray = getIntent().getByteArrayExtra("image");
         Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
@@ -112,7 +103,7 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startGalleryChooser();
+                speakOut();
 
             }
         });
@@ -134,8 +125,11 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
         switch (item.getItemId()) {
             case R.id.saveAsText:
                 createPdf(mImageDetails.getText().toString());
-
                 return true;
+            case R.id.gallery:
+                startGalleryChooser();
+                return true;
+
         }
         return true;
     }
@@ -150,7 +144,7 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
         Canvas canvas = page.getCanvas();
         Paint paint = new Paint();
         paint.setColor(Color.RED);
-        canvas.drawCircle(50, 50, 30, paint);
+       // canvas.drawCircle(50, 50, 30, paint);
         paint.setColor(Color.BLACK);
         canvas.drawText(sometext, 80, 50, paint);
         //canvas.drawt
@@ -163,19 +157,20 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
         canvas = page.getCanvas();
         paint = new Paint();
         paint.setColor(Color.BLUE);
-        canvas.drawCircle(100, 100, 100, paint);
+      //  canvas.drawCircle(100, 100, 100, paint);
         document.finishPage(page);
         // write the document content
-        String directory_path = Environment.getExternalStorageDirectory().getPath() + "/mypdf/";
+        String directory_path = Environment.getExternalStorageDirectory().getPath() + "/Squiggle_pdf/";
         File file = new File(directory_path);
         if (!file.exists()) {
             file.mkdirs();
         }
-        String targetPdf = directory_path+"test-2.pdf";
+        String fileName = new Date().getTime() + ".pdf";
+        String targetPdf = directory_path+fileName;
         File filePath = new File(targetPdf);
         try {
             document.writeTo(new FileOutputStream(filePath));
-            Toast.makeText(this, "Done", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Saved as PDF at "+directory_path, Toast.LENGTH_LONG).show();
         } catch (IOException e) {
             Log.e("main", "error "+e.toString());
             Toast.makeText(this, "Something wrong: " + e.toString(),  Toast.LENGTH_LONG).show();
@@ -212,7 +207,7 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
                     || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Log.e("TTS", "This Language is not supported");
             } else {
-                textToSpeech.setEnabled(true);
+               // textToSpeech.setEnabled(true);
                 speakOut();
             }
 

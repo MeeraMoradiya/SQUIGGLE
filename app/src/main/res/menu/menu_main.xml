@@ -15,7 +15,7 @@
         android:id="@+id/pencil"
         android:title=""
         app:showAsAction="always"
-        android:icon="@drawable/pencil1"
+        android:icon="@drawable/pencil"
         android:orderInCategory="1"
         >
         <!-- Starting the text color sub menu which have three items-->
@@ -23,17 +23,17 @@
             <item
                 android:id="@+id/smallPencil"
                 android:title=""
-                android:icon="@drawable/pencil1"
+                android:icon="@drawable/smallpencil"
                 />
             <item
                 android:id="@+id/mediumPencil"
                 android:title=""
-                android:icon="@drawable/pencil1"
+                android:icon="@drawable/mediumpencil"
                 />
             <item
                 android:id="@+id/largePencil"
                 android:title=""
-                android:icon="@drawable/pencil1"
+                android:icon="@drawable/bigpencil"
                 />
         </menu>
     </item>
@@ -42,6 +42,13 @@
         android:title=""
         app:showAsAction="always"
         android:icon="@drawable/eraser"
+        android:orderInCategory="1"
+        />
+    <item
+        android:id="@+id/share"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/share"
         android:orderInCategory="1"
         />
     <item
@@ -55,24 +62,30 @@
         <menu>
             <item
                 android:id="@+id/black"
-                android:title=""
+                android:title="Black"
                 android:icon="@drawable/black"
                 />
             <item
                 android:id="@+id/red"
-                android:title=""
+                android:title="Red"
                 android:icon="@drawable/red"
                 />
             <item
                 android:id="@+id/green"
-                android:title=""
+                android:title="Green"
                 android:icon="@drawable/green"
                 />
             <item
                 android:id="@+id/blue"
-                android:title=""
+                android:title="Blue"
                 android:icon="@drawable/blue"
                 />
+            <item
+                android:id="@+id/yellow"
+                android:title="Yellow"
+                android:icon="@drawable/yellow"
+                />
+
         </menu>
     </item>
 
@@ -119,15 +132,15 @@
         android:title="Save as Image"
         app:showAsAction="never|withText"
         android:orderInCategory="4"
-        android:icon="@drawable/red"
         />
-    <item
-        android:id="@+id/saveAsText"
-        android:title="Save as Text"
-        app:showAsAction="never|withText"
-        android:orderInCategory="4"
-        android:icon="@drawable/red"
-        />
+    <!--<item-->
+        <!--android:id="@+id/saveAsText"-->
+        <!--android:title="Save as Text"-->
+        <!--app:showAsAction="never|withText"-->
+        <!--android:orderInCategory="4"-->
+        <!--/>-->
+
+
 
 </menu>
 <!--<menu xmlns:android="http://schemas.android.com/apk/res/android"-->

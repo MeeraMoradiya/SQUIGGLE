@@ -5,10 +5,17 @@
     >
 
     <item
+        android:id="@+id/gallery"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/gallery"
+        android:orderInCategory="1"
+        />
+    <item
         android:id="@+id/saveAsText"
-        android:title="Save as Text"
-        app:showAsAction="never|withText"
-        android:orderInCategory="4"
-        android:icon="@drawable/red"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/saveastext"
+        android:orderInCategory="1"
         />
     </menu>
