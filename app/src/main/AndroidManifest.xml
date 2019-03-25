@@ -18,13 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_final_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
 
-        </activity>
-        <activity android:name=".api"
-            android:label=""/>
-        <activity android:name=".api_new"
-            android:label=""/>
         <activity android:name=".splash"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -33,6 +27,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".MainActivity"
+            android:label="">
+
+        </activity>
+        <activity android:name=".api"
+            android:label=""/>
+        <activity android:name=".api_new"
+            android:label=""/>
+
     </application>
 
 </manifest>
