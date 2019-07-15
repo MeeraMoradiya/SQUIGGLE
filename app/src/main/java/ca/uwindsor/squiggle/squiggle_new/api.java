@@ -44,6 +44,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
 public class api extends AppCompatActivity {
     private static String accessToken;
     static final int REQUEST_GALLERY_IMAGE = 10;
@@ -64,10 +65,6 @@ public class api extends AppCompatActivity {
                 .select_image_button);
         selectedImage = (ImageView) findViewById(R.id.selected_image);
         resultTextView = (TextView) findViewById(R.id.result);
-
-
-
-
 
 
         byte[] byteArray = getIntent().getByteArrayExtra("image");
@@ -168,20 +165,12 @@ public class api extends AppCompatActivity {
                     Vision vision = builder.build();
 
                     List<Feature> featureList = new ArrayList<>();
-                   /* Feature labelDetection = new Feature();
-                    labelDetection.setType("LABEL_DETECTION");
-                    labelDetection.setMaxResults(10);
-                    featureList.add(labelDetection);*/
+
 
                     Feature textDetection = new Feature();
                     textDetection.setType("DOCUMENT_TEXT_DETECTION");
                     textDetection.setMaxResults(10);
                     featureList.add(textDetection);
-
-                  /*  Feature landmarkDetection = new Feature();
-                    landmarkDetection.setType("LANDMARK_DETECTION");
-                    landmarkDetection.setMaxResults(10);
-                    featureList.add(landmarkDetection);*/
 
                     List<AnnotateImageRequest> imageList = new ArrayList<>();
                     AnnotateImageRequest annotateImageRequest = new AnnotateImageRequest();
@@ -236,8 +225,7 @@ public class api extends AppCompatActivity {
         }
 
 
-
-        Log.d(LOG_TAG, "RESULT:::"+message.toString());
+        Log.d(LOG_TAG, "RESULT:::" + message.toString());
         return message.toString();
     }
 
@@ -275,15 +263,8 @@ public class api extends AppCompatActivity {
         String[] accountTypes = new String[]{GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE};
         Intent intent = AccountPicker.newChooseAccountIntent(null, null,
                 accountTypes, false, null, null, null, null);
-       // AccountPicker.newChooseAccountIntent()
-       // Uri tempUri=getImageUri(getApplicationContext(),bmp);
-       // intent.setData(tempUri);
         startActivityForResult(intent, REQUEST_CODE_PICK_ACCOUNT);
     }
-
-
-
-
 
 
     private void getAuthToken() {
@@ -296,7 +277,7 @@ public class api extends AppCompatActivity {
         }
     }
 
-    public void onTokenReceived(String token){
+    public void onTokenReceived(String token) {
         accessToken = token;
         launchImagePicker();
     }

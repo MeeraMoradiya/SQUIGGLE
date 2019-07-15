@@ -61,9 +61,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class api_new extends AppCompatActivity implements TextToSpeech.OnInitListener{
+public class api_new extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
-    private static final String CLOUD_VISION_API_KEY = "AIzaSyB10cJCht4mzfe0ButRpYAKQLM3w9vOk3w";
+    private static final String CLOUD_VISION_API_KEY = "Enter Your Key here";
     private static final String FILE_NAME = "temp.jpg";
     private static final String ANDROID_CERT_HEADER = "X-Android-Cert";
     private static final String ANDROID_PACKAGE_HEADER = "X-Android-Package";
@@ -93,7 +93,7 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
         Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         try {
             callCloudVision(bitmap);
-        }catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -134,7 +134,7 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
         return true;
     }
 
-    private void createPdf(String sometext){
+    private void createPdf(String sometext) {
         // create a new document
         PdfDocument document = new PdfDocument();
         // crate a page description
@@ -144,7 +144,7 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
         Canvas canvas = page.getCanvas();
         Paint paint = new Paint();
         paint.setColor(Color.RED);
-       // canvas.drawCircle(50, 50, 30, paint);
+        // canvas.drawCircle(50, 50, 30, paint);
         paint.setColor(Color.BLACK);
         canvas.drawText(sometext, 80, 50, paint);
         //canvas.drawt
@@ -157,7 +157,7 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
         canvas = page.getCanvas();
         paint = new Paint();
         paint.setColor(Color.BLUE);
-      //  canvas.drawCircle(100, 100, 100, paint);
+        //  canvas.drawCircle(100, 100, 100, paint);
         document.finishPage(page);
         // write the document content
         String directory_path = Environment.getExternalStorageDirectory().getPath() + "/Squiggle_pdf/";
@@ -166,14 +166,14 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
             file.mkdirs();
         }
         String fileName = new Date().getTime() + ".pdf";
-        String targetPdf = directory_path+fileName;
+        String targetPdf = directory_path + fileName;
         File filePath = new File(targetPdf);
         try {
             document.writeTo(new FileOutputStream(filePath));
-            Toast.makeText(this, "Saved as PDF at "+directory_path, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Saved as PDF at " + directory_path, Toast.LENGTH_LONG).show();
         } catch (IOException e) {
-            Log.e("main", "error "+e.toString());
-            Toast.makeText(this, "Something wrong: " + e.toString(),  Toast.LENGTH_LONG).show();
+            Log.e("main", "error " + e.toString());
+            Toast.makeText(this, "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
         }
         // close the document
         document.close();
@@ -183,7 +183,7 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
 
         CharSequence text = mImageDetails.getText();
 
-        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null,"id1");
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "id1");
     }
 
     @Override
@@ -207,7 +207,7 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
                     || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Log.e("TTS", "This Language is not supported");
             } else {
-               // textToSpeech.setEnabled(true);
+                // textToSpeech.setEnabled(true);
                 speakOut();
             }
 
@@ -226,7 +226,6 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
                     GALLERY_IMAGE_REQUEST);
         }
     }
-
 
 
     public File getCameraFile() {
@@ -355,7 +354,7 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
                     Log.d(TAG, "created Cloud Vision request object, sending request");
 
                     BatchAnnotateImagesResponse response = annotateRequest.execute();
-                    switch (SERVICE_TYPE){
+                    switch (SERVICE_TYPE) {
                         case "DOCUMENT_TEXT_DETECTION":
                             return textDetectionResponse(response);
                         default:
@@ -401,16 +400,15 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
 
         Log.d(TAG, "Received Response");
 
-       // message.append("Texts:\n");
+        // message.append("Texts:\n");
         List<EntityAnnotation> texts = response.getResponses().get(0)
                 .getTextAnnotations();
-        Log.d(TAG,"response ==" +response);
+        Log.d(TAG, "response ==" + response);
         if (texts != null) {
 
-                message.append(String.format(Locale.getDefault(), "%s",
-                         texts.get(0).getDescription()));
-                message.append("\n");
-
+            message.append(String.format(Locale.getDefault(), "%s",
+                    texts.get(0).getDescription()));
+            message.append("\n");
 
 
         } else {
@@ -418,13 +416,9 @@ public class api_new extends AppCompatActivity implements TextToSpeech.OnInitLis
         }
 
 
-
-        Log.d(TAG, "RESULT:::"+message.toString());
+        Log.d(TAG, "RESULT:::" + message.toString());
         return message.toString();
     }
-
-
-
 
 
 }
