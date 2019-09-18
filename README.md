@@ -1,7 +1,7 @@
 # SQUIGGLE
 Handwritting detection application
 
-Pros and cons of using smartphone and various applications exists within it. One problem, not commonly addressed is with the people who are new to this development in the mobile world. Those people find it difficult when it comes to typing in various languages by using the digital keyboard provided. As a solution to this problem, we developed an Android application called ”Squiggle” in which the users are able to draw or scribble the letter/word on the drawing view, as they write on the paper. This handwritten word will be recognized by the app and will be converted into text in standard font. 
+Pros and cons of using smartphone and various applications exists within it. One problem, not commonly addressed is with the people who are new to this development in the mobile world. Those people find it difficult when it comes to typing in various languages by using the digital keyboard provided. As a solution to this problem, we developed an Android application called ”Squiggle” in which the users are able to draw or scribble the letter/word on the drawing view, as they write on the paper. This handwritten word will be recognized by the app and will be converted into text in standard font and can further be converted to voice. 
 
 Technology used: Android Studio, SQLite database, Google vision API, Google text-to-speech API
 Features:
